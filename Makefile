@@ -1,7 +1,7 @@
 #CONFIG_MODULE_SIG=n
 
 obj-m				+= procfs-test-module.o
-procfs-test-module-objs		:= my-procfs.o
+procfs-test-module-objs		:= my-procfs.o create_seq.o create_dir.o
 
 #CC=gcc
 KVERSION = $(shell uname -r)
