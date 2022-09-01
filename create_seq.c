@@ -43,3 +43,10 @@ int create_my_seq_proc_entry(void)
 	return 0;
 }
 
+void remove_my_seq_proc_entry(void)
+{
+	remove_proc_entry(PROC_SEQ_ENTRY_NAME, NULL);
+
+	return;
+}
+

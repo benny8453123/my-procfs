@@ -21,6 +21,9 @@
 
 
 int create_my_seq_proc_entry(void);
+void remove_my_seq_proc_entry(void);
+
 int create_my_dir_proc_entry(void);
+void remove_my_dir_proc_entry(void);
 
 #endif /* MY_PROCFS_H */
