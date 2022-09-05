@@ -16,9 +16,16 @@ static int __init my_procfs_init(void)
 	if (ret != 0)
 		goto remove_seq_file;
 
+	/* create seq buf file */
+	ret = create_my_seq_buf_proc_entry();
+	if (ret != 0)
+		goto remove_dir_file;
+
 	/* all thing created successfully goto out and return 0 */
 	goto out;
 
+remove_seq_buf_file:
+	remove_my_seq_buf_proc_entry();
 remove_dir_file:
 	remove_my_dir_proc_entry();
 remove_seq_file:
@@ -31,6 +38,7 @@ static void __exit my_procfs_exit(void)
 {
 	my_procfs_info("Enter %s\n", __func__);
 	
+	remove_my_seq_buf_proc_entry();
 	remove_my_dir_proc_entry();
 	remove_my_seq_proc_entry();
 	

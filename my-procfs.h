@@ -20,6 +20,7 @@
 
 #define PROC_SEQ_ENTRY_NAME 	"my-proc-seq"
 #define PROC_DIR_ENTRY_NAME	"my-proc-dir"
+#define PROC_SEQ_BUF_ENTRY_NAME "my-proc-seq-buf"
 
 
 int create_my_seq_proc_entry(void);
@@ -28,4 +29,6 @@ void remove_my_seq_proc_entry(void);
 int create_my_dir_proc_entry(void);
 void remove_my_dir_proc_entry(void);
 
+int create_my_seq_buf_proc_entry(void);
+void remove_my_seq_buf_proc_entry(void);
 #endif /* MY_PROCFS_H */
