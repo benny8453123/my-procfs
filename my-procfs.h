@@ -5,6 +5,8 @@
 #include <linux/kernel.h>
 /* For using proc fs api */
 #include <linux/proc_fs.h>
+/* Using for module api and try_module_get/module_put */
+#include <linux/module.h>
 
 #define my_procfs_info(fmt, ...) \
 	pr_info("[my_procfs]: "fmt, ##__VA_ARGS__)

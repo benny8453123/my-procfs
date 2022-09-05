@@ -1,4 +1,3 @@
-#include <linux/module.h>
 #include "my-procfs.h"
 
 static int __init my_procfs_init(void)

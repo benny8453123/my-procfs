@@ -54,9 +54,29 @@ ssize_t my_data_write(struct file *file, const char __user *buf, size_t count, l
 	return count;
 }
 
+static int my_data_open(struct inode *inode, struct file *file)
+{
+	/* make kernel account that this module is being
+	 * need include linux/module.h
+	 */
+	try_module_get(THIS_MODULE);
+	return 0;
+}
+
+static int my_data_release(struct inode *inode, struct file *file)
+{
+	/* make kernel accout that this module is not being used
+	 * need include linux/module.h
+	 */
+	module_put(THIS_MODULE);
+	return 0;
+}
+
 static const struct proc_ops my_data_ops = {
 	.proc_write = my_data_write,
 	.proc_read = my_data_read,
+	.proc_open = my_data_open,
+	.proc_release = my_data_release,
 };
 
 int create_data_in_dir_proc_entry(void)
